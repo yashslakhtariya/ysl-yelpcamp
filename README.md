@@ -16,7 +16,7 @@ This project was created using Node.js, Express, MongoDB, Cloudinary API, Mapbox
 2. Create a cloudinary account to get an API key and secret code
 
 ```
-git clone https://github.com/shubham-poddar-dev/yelpcamp.git
+git clone https://github.com/yashslakhtariya/ysl-yelpcamp.git
 cd yelpcamp
 npm install
 ```
@@ -24,9 +24,11 @@ npm install
 Create a .env file (or just export manually in the terminal) in the root of the project and add the following:  
 
 ```
-DATABASEURL='<url>'
-API_KEY=''<key>
-API_SECRET='<secret>'
+DB_URL='<url>'
+CLOUDINARY_KEY='<key>'
+CLOUDINARY_SECRET='<secret>'
+CLOUDINARY_CLOUD_NAME='<cloudname>'
+MAPBOX_TOKEN='<token>'
 ```
 
 Run ```mongod``` in another terminal and ```node app.js``` in the terminal with the project.  
