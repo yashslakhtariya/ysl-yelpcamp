@@ -94,7 +94,7 @@
 </div>
 
 <script>
-    const mapToken = '<%=process.env.MAPBOX_TOKEN%>';
-    const campground = <%-JSON.stringify(campground)%>;
+    const mapToken = 'pk.eyJ1IjoieWFzaGxha2h0YXJpeWEiLCJhIjoiY2x2dXZsc3B4MDByNzJtbjJleTdkcjB4MSJ9.HAyVsR-xfknQDG-7zEIk7A';
+    const campgrounds = {features: `<%-JSON.stringify(campgrounds)%>`};
 </script>
 <script src="/JS/showPageMap.js"></script>
