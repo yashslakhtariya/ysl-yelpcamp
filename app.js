@@ -23,7 +23,7 @@ const User = require('./models/user');
 
 // process.env.DB_URL
 //'mongodb://127.0.0.1:27017/yelp-camp'
-const dbUrl = process.env.DB_URL;
+const dbUrl = 'mongodb+srv://admin:admin@cluster-01.8e6btpk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-01';
 const mongoose = require('mongoose');
 main().catch(err => console.log(err));
 
