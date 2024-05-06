@@ -3,7 +3,18 @@
 <div id="cluster-map"></div>
 
 <h1>All Campgrounds</h1>
-<a href="/campgrounds/new">Add Campground</a>
+
+<a href="/campgrounds/new" style="
+display: inline-block;
+padding: 10px 20px;
+background-color: #4CAF50; /* Green */
+color: white;
+text-align: center;
+text-decoration: none;
+border-radius: 4px;
+cursor: pointer;
+margin-top: 5px;
+margin-bottom: 20px;">Add Campground</a>
 
 <% for(let campground of campgrounds) { %>
     <div class="card mb-3">
@@ -28,7 +39,7 @@
 <% } %>
 
 <script>
-    const mapToken = '<%=process.env.MAPBOX_TOKEN%>';
-    const campgrounds = {features: <%-JSON.stringify(campgrounds)%>};
+    const mapToken = 'pk.eyJ1IjoieWFzaGxha2h0YXJpeWEiLCJhIjoiY2x2dXZsc3B4MDByNzJtbjJleTdkcjB4MSJ9.HAyVsR-xfknQDG-7zEIk7A';
+    const campgrounds = {features: `<%-JSON.stringify(campgrounds)%>`};
 </script>
 <script src="/JS/clusterMap.js"></script>
