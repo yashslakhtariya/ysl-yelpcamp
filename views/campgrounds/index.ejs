@@ -1,25 +1,25 @@
 <% layout('/layouts/boilerplate') %>
 
-<div id="cluster-map"></div>
-
-<h1>All Campgrounds</h1>
+<div id="cluster-map" style="border-radius: 10px; border-radius: 10px; border: 0px solid #313744;"></div>
+<br>
+<h1 style="text-align: center; background-color: #212529; color: #efeff2; padding-top: 8px; padding-bottom: 8px; border-radius: 10px;">All Campgrounds</h1>
 
 <a href="/campgrounds/new" style="
 display: inline-block;
-padding: 10px 20px;
+padding: 6px 20px;
 background-color: #4CAF50; /* Green */
 color: white;
 text-align: center;
 text-decoration: none;
-border-radius: 4px;
+border-radius: 6px;
 cursor: pointer;
-margin-top: 5px;
+margin-top: 10px;
 margin-bottom: 20px;">Add Campground</a>
 
 <% for(let campground of campgrounds) { %>
-    <div class="card mb-3">
-        <div class="row">
-            <div class="col-md-4">
+    <div class="card mb-3" style="border-radius: 10px;">
+        <div class="row" style="border-radius: 10px;">
+            <div class="col-md-4" style="border-radius: 10px;">
                <% if(campground.images.length){  %>
                     <img height="280px" width="420px" class="img-fluid" src="<%= campground.images[0].url %>" alt="">
                <% } %>
@@ -43,3 +43,16 @@ margin-bottom: 20px;">Add Campground</a>
     const campgrounds = {features: `<%-JSON.stringify(campgrounds)%>`};
 </script>
 <script src="/JS/clusterMap.js"></script>
+<script>
+    window.watsonAssistantChatOptions = {
+        integrationID: "4a39d763-cd06-4444-b15b-b3b6669e849b", // The ID of this integration.
+        region: "au-syd", // The region your integration is hosted in.
+        serviceInstanceID: "9232f794-c5cb-4d5d-b106-2ed434578a27", // The ID of your service instance.
+        onLoad: async (instance) => { await instance.render(); }
+    };
+    setTimeout(function(){
+        const t=document.createElement('script');
+        t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+        document.head.appendChild(t);
+    });
+</script>
