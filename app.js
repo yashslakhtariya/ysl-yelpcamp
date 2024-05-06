@@ -1,4 +1,4 @@
-if(process.env.NODE_ENV !== "production"){
+if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
 
@@ -23,13 +23,13 @@ const User = require('./models/user');
 
 // process.env.DB_URL
 //'mongodb://127.0.0.1:27017/yelp-camp'
-const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/yelp-camp';
+const dbUrl = process.env.DB_URL;
 const mongoose = require('mongoose');
 main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect(dbUrl);
-  console.log("Mongoose Connection Open!!");
+    await mongoose.connect(dbUrl);
+    console.log("Mongoose Connection Open!!");
 }
 
 app.engine('ejs', engine);
@@ -37,7 +37,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(mongoSanitize());
 
@@ -46,12 +46,12 @@ const secret = process.env.SECRET || 'thisshouldbeabettersecret';
 const store = MongoStore.create({
     mongoUrl: dbUrl,
     touchAfter: 24 * 60 * 60,  //time period in seconds
-    crypto:{
+    crypto: {
         secret
     }
 });
 
-store.on('error', function(e){
+store.on('error', function (e) {
     console.log('Session Store Error', e);
 });
 
@@ -80,7 +80,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
-    if(!['/login', '/', '/register'].includes(req.originalUrl)){
+    if (!['/login', '/', '/register'].includes(req.originalUrl)) {
         req.session.returnTo = req.originalUrl;
     }
     res.locals.success = req.flash('success');
@@ -110,9 +110,9 @@ app.all('*', (req, res, next) => {
 
 //Error page for Express
 app.use((err, req, res, next) => {
-    const{statusCode = 500} = err;
-    if(!err.message) err.message = 'Something Went Wrong!';
-    res.status(statusCode).render('error', {err});
+    const { statusCode = 500 } = err;
+    if (!err.message) err.message = 'Something Went Wrong!';
+    res.status(statusCode).render('error', { err });
 });
 
 const port = process.env.PORT || 3000
