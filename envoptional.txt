@@ -1,0 +1,5 @@
+# CLOUDINARY_KEY = '956645236412844'
+# CLOUDINARY_SECRET = 'XQWfu_4YYQOg_fO158ioU0KbZmw'
+# CLOUDINARY_CLOUD_NAME = 'dakpbecof'
+# DB_URL = 'mongodb+srv://admin:admin@cluster-01.8e6btpk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-01'
+# MAPBOX_TOKEN = 'pk.eyJ1IjoieWFzaGxha2h0YXJpeWEiLCJhIjoiY2x2dXZsc3B4MDByNzJtbjJleTdkcjB4MSJ9.HAyVsR-xfknQDG-7zEIk7A'
